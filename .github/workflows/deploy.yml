@@ -1,0 +1,46 @@
+# File: .github/workflows/deploy.yml
+name: Deploy Portfolio to Pages
+
+on:
+  push:
+    branches: ["main"] # Run this workflow when pushing to the main branch
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a stable Node version
+
+      # Install dependencies and build the project (creates the 'dist' folder)
+      - name: Install dependencies and Build Project
+        run: |
+          npm install
+          npm run build
+      
+      # Upload the compiled /dist folder as an artifact
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # IMPORTANT: This points to your compiled output
+
+  deploy:
+    needs: build # Wait for the build job to complete successfully
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
