@@ -2,7 +2,7 @@
 
 Welcome to the official repository for my personal portfolio website, hosted live on GitHub Pages.
 
-This portfolio is designed to showcase my skills, projects, and professional experience in **[Insert your main field, e.g., AI Engineering, Web Development]**.
+This portfolio is designed to showcase my skills, projects, and professional experience in **[AI Engineering, Web Development]**.
 
 ## ✨ Live Demo
 
@@ -15,8 +15,7 @@ The website is currently deployed and available live at:
 
 * **Responsive Design:** Optimized for seamless viewing on all devices (mobile, tablet, and desktop).
 * **Project Showcase:** Detailed sections highlighting my key projects and contributions.
-* **Contact Form:** Integrated with **Formspree** for direct message submission.
-* **[Add another key feature, e.g., Dark Theme, Interactive Elements]**
+
 
 ## 🛠️ Technology Stack
 
@@ -24,7 +23,7 @@ This project is built using modern front-end technologies:
 
 * **HTML5** & **CSS3** (for structure and styling)
 * **JavaScript** (for interactivity)
-* **[Mention any Frameworks/Libraries used, e.g., React, Tailwind CSS, Vite]**
+* **[React, Tailwind CSS, Vite]**
 * **Form Submission:** Integrated with **[Formspree / Web3Forms]** for receiving contact messages.
 
 ## 📁 Repository Structure
