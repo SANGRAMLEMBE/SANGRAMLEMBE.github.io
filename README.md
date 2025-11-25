@@ -23,7 +23,7 @@ This project is built using modern front-end technologies:
 
 * **HTML5** & **CSS3** (for structure and styling)
 * **JavaScript** (for interactivity)
-* **[React, Tailwind CSS, Vite]**
+* **React, Tailwind CSS, Vite**
 * **Form Submission:** Integrated with **[Formspree / Web3Forms]** for receiving contact messages.
 
 ## 📁 Repository Structure
