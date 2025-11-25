@@ -1,6 +1,7 @@
+# A small change to trigger a new run
 # File: .github/workflows/deploy.yml
 name: Deploy Portfolio to Pages
-
+# ... rest of the code ...
 on:
   push:
     branches: ["main"] # Run this workflow when pushing to the main branch
