@@ -1,12 +1,13 @@
 # File: .github/workflows/deploy.yml
-name: Deploy Static Content to Pages
+name: Deploy Portfolio to Pages
 
 on:
   push:
-    branches: ["main"] # Run this workflow when pushing to the main branch
-  workflow_dispatch: # Allows manual trigger
+    branches: ["main"] 
+  workflow_dispatch:
 
 jobs:
+  # The single job that handles build and deployment
   deploy:
     runs-on: ubuntu-latest
     permissions:
@@ -18,34 +19,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # Checkout the repository
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Setup Node.js (Vite/React requirement)
-      - name: Setup Node
+      - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use a stable Node version
+          node-version: '20' # Ensure a modern Node version is used
 
-      # Install dependencies and build the project
-      - name: Build Project
+      - name: Install dependencies and Build Project
         run: |
           npm install
-          npm run build
+          # The next line runs your Vite build, creating the 'dist' folder
+          npm run build 
 
-      # Setup Pages (Tells GitHub where to find the build output)
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # Upload artifact (the compiled /dist folder)
-      - name: Upload artifact
+      - name: Upload artifact (the compiled /dist folder)
         uses: actions/upload-pages-artifact@v3
         with:
-          # The path to your built assets (the folder created by npm run build)
           path: './dist' 
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
